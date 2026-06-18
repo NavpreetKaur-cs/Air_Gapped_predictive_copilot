@@ -1,0 +1,13 @@
+Router R1
+IP: 10.10.10.1
+
+Router R2
+IP: 10.10.10.2
+
+Tunnel 5 belongs to Router R2.
+
+Common MPLS tunnel flapping causes:
+
+- BGP instability
+- Interface congestion
+- OSPF neighbor resets

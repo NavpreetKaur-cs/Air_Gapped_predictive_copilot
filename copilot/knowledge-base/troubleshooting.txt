@@ -1,0 +1,8 @@
+MPLS Tunnel Flapping
+
+Possible Causes:
+
+- BGP instability
+- OSPF adjacency loss
+- Congestion
+- Interface errors

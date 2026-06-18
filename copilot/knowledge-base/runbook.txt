@@ -1,0 +1,13 @@
+Tunnel Failure Runbook
+
+Step 1:
+Check interface status.
+
+Step 2:
+Verify BGP neighbors.
+
+Step 3:
+Inspect packet loss.
+
+Step 4:
+Restart tunnel if required.
