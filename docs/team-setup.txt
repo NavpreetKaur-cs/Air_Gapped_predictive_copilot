@@ -1,0 +1,345 @@
+# Air-Gapped Predictive Copilot for Secure MPLS Operations
+    ## Team Setup & Development Standards
+
+# Project Overview
+    The goal of this project is to build a fully offline AI-powered NOC (Network Operations Center) Copilot capable of:
+
+    - Simulating an enterprise MPLS + SD-WAN network
+    - Collecting network telemetry
+    - Predicting network degradation before SLA violations
+    - Explaining failures using an Offline LLM
+    - Recommending corrective actions
+    - Displaying everything through a professional dashboard
+    - Operating completely within an air-gapped environment
+
+# Technology Stack
+    ## Network Simulation
+        - EVE-NG / GNS3
+        - FRRouting
+        - Wireshark
+
+    ## Telemetry
+        - Telegraf
+        - Prometheus
+        - SNMP
+        - Syslog
+        - NetFlow/IPFIX
+
+    ## Machine Learning
+        - Python 3.12
+        - Pandas
+        - NumPy
+        - Scikit-Learn
+        - XGBoost
+        - NetworkX
+
+    ## Offline AI Copilot
+        - Ollama
+        - Llama 3 8B
+        - FAISS
+        - LangChain
+        - Sentence Transformers
+
+    ## Backend
+        - FastAPI
+        - Uvicorn
+
+    ## Frontend
+        - React
+        - Vite
+        - Axios
+        - Recharts
+        - React Router
+
+    ## Version Control
+        - Git
+        - GitHub
+
+# Required Software
+    ## All Team Members
+        - VS Code
+        - Git
+        - GitHub Account
+        - Python 3.12
+
+    ## Member 1 – Network Engineer
+        - EVE-NG or GNS3
+        - Wireshark
+
+    ## Member 2 – ML Engineer
+        - Jupyter Notebook Extension
+
+    ## Member 3 – Offline LLM Engineer
+        - Ollama
+
+    ## Member 4 – Full Stack Engineer
+        - Node.js 22 LTS
+        - npm
+
+# Python Version
+    All members must use: Python 3.12
+    Check: python --version
+
+# Node.js Version
+    Frontend developer must use : Node.js 22 LTS
+    Check                       : node -v, npm -v
+
+# Team Responsibilities
+
+    ## Member 1 – Network Simulation Engineer
+        Folders: network/, telemetry/
+
+        Responsibilities:
+        - MPLS Topology
+        - OSPF Configuration
+        - BGP Configuration
+        - SD-WAN Overlay
+        - Traffic Generation
+        - Fault Injection
+        - Telemetry Collection
+
+        Deliverables:
+        - Network Topology
+        - Router Configurations
+        - Traffic Generator
+        - Fault Scenarios
+        - Telemetry Exporters
+
+        Output Data:
+        - Latency
+        - Jitter
+        - Packet Loss
+        - Interface Utilization
+        - Link Status
+        - BGP Events
+        - OSPF Events
+        - Syslog Events
+
+    ## Member 2 – AI/ML Engineer
+
+        Folders: ml-engine/
+
+        Responsibilities:
+        - Dataset Creation
+        - Feature Engineering
+        - Model Training
+        - Model Evaluation
+        - Prediction Service
+
+        Deliverables:
+        - Processed Dataset
+        - Trained Model
+        - Prediction API
+
+        Outputs:
+        - Risk Level
+        - Confidence Score
+        - Predicted Issue
+        - Time-To-Impact
+        
+        Models:
+        - XGBoost (Primary)
+        - LSTM (Optional Advanced Model)
+
+        Evaluation Metrics:
+        - Precision
+        - Recall
+        - F1 Score
+        - Prediction Lead Time
+        - False Positive Rate
+
+    ## Member 3 – Offline LLM & RAG Engineer
+
+        Folders: copilot/
+
+        Responsibilities:
+        - Ollama Setup
+        - Llama 3 Deployment
+        - Knowledge Base Creation
+        - FAISS Vector Database
+        - RAG Pipeline
+        - Prompt Engineering
+
+        Deliverables:
+        - Offline Copilot
+        - Vector Database
+        - Prompt Templates
+        - Copilot API
+
+        Outputs:
+        - Root Cause Analysis
+        - Recommended Actions
+        - Impact Assessment
+        - Natural Language Explanations
+        - Confidence Score
+
+        Knowledge Base Sources:
+        - Topology Information
+        - Runbooks
+        - Past Incidents
+        - Troubleshooting Guides
+        - Network Documentation
+
+    ## Member 4 – Full Stack Engineer
+
+        Folders: frontend/, backend/
+
+        Responsibilities:
+        - React Dashboard
+        - FastAPI Backend
+        - API Integration
+        - Final Integration
+        - Demo Preparation
+
+        Deliverables:
+        - Dashboard
+        - Backend APIs
+        - Visualizations
+
+        Outputs:
+        - Network Overview
+        - Prediction Panel
+        - AI Copilot Panel
+        - Topology View
+
+        Dashboard Modules:
+        - Network Overview
+        - Live Telemetry
+        - Prediction Panel
+        - AI Copilot Panel
+        - Alert Center
+        - Topology Visualization
+        - Incident Summary
+
+# Git Branch Structure -- Saare apne apne branch me push karna code aur code likhne se pehle chsnges pull zaroor krlena
+    main
+    network-dev
+    ml-dev
+    copilot-dev
+    frontend-dev
+
+
+# Git Workflow
+    Clone Repository    : git clone <repository-url>
+    Switch Branch       : git checkout <branch-name>
+    Pull Latest Changes : git pull origin main
+    Add Files           : git add .
+    Commit Changes      : git commit -m "Meaningful commit message"
+    Push Changes        : git push origin <branch-name>
+
+# Frontend Standardization
+
+    Create project using: npm create vite@latest frontend -- --template react
+
+    Install dependencies:
+        npm install axios
+        npm install react-router-dom
+        npm install recharts
+        npm install react-icons
+
+    Run frontend: npm run dev
+
+# Backend Standardization
+
+    Run backend: uvicorn app.main:app --reload
+
+# Daily Team Workflow
+
+    Every member must:
+
+    1. Pull latest changes
+    2. Complete assigned tasks
+    3. Commit code
+    4. Push code
+    5. Update team progress
+
+# Team Rules
+
+    - Use Python 3.12
+    - Use Node.js 22 LTS
+    - Follow assigned folder ownership
+    - Push code daily
+    - Use meaningful commit messages
+    - Create Pull Requests before merging
+    - Keep documentation updated
+    - Do not push broken code to main
+
+# Success Criteria
+
+    The system must answer:
+
+    Q1. What is likely to fail next?
+    Q2. Why is the risk elevated?
+    Q3. What action should be taken before impact occurs?
+
+The solution must:
+
+    - Operate completely offline
+    - Predict failures before SLA violations
+    - Explain predictions accurately
+    - Recommend corrective actions
+    - Present results through a dashboard
+    - Demonstrate all functionality in the simulated MPLS/SD-WAN environment
+
+
+PHASE 1 (Days 1-3)
+    Everyone works independently.
+
+    Member 1:
+    Network topology setup
+
+    Member 2:
+    Dummy ML model
+
+    Member 3:
+    Basic Ollama + RAG
+
+    Member 4:
+    Dashboard skeleton
+
+PHASE 2 (Days 4-7)
+    Everyone continues independently.
+
+    Member 1:
+    Telemetry generation
+
+    Member 2:
+    Prediction engine
+
+    Member 3:
+    Knowledge base + FAISS
+
+    Member 4:
+    Backend APIs + UI
+
+PHASE 3 (Days 8-10)
+    Integration begins.
+
+    Member 1 -> Member 2
+    Telemetry
+
+    Member 2 -> Member 3
+    Predictions
+
+    Member 3 -> Member 4
+    Copilot responses
+
+    Member 4
+    Integrates all modules
+
+PHASE 4 (Days 11-12)
+    End-to-end testing
+
+PHASE 5 (Days 13-14)
+    Demo preparation
+    Documentation
+    Presentation
+
+Air-Gapped Requirements
+    - No cloud APIs
+    - No OpenAI API
+    - No internet dependency during runtime
+    - All models run locally
+    - All telemetry remains local
+    - Local vector database only
+    - Offline inference only
