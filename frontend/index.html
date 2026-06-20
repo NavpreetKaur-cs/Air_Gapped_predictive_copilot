@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Air-Gapped Copilot</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: "Inter", "Segoe UI", sans-serif;
+        background: #0b0f19;
+        color: #e6e6e6;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+    }
+
+    header {
+        padding: 15px 20px;
+        background: #111827;
+        border-bottom: 1px solid #1f2937;
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    #chat {
+        flex: 1;
+        overflow-y: auto;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .msg {
+        max-width: 70%;
+        padding: 12px 14px;
+        border-radius: 12px;
+        line-height: 1.4;
+        white-space: pre-wrap;
+    }
+
+    .user {
+        align-self: flex-end;
+        background: #2563eb;
+        color: white;
+        border-bottom-right-radius: 4px;
+    }
+
+    .bot {
+        align-self: flex-start;
+        background: #1f2937;
+        border-bottom-left-radius: 4px;
+    }
+
+    .input-area {
+        display: flex;
+        padding: 12px;
+        background: #111827;
+        border-top: 1px solid #1f2937;
+    }
+
+    input {
+        flex: 1;
+        padding: 12px;
+        border-radius: 8px;
+        border: none;
+        outline: none;
+        background: #0b0f19;
+        color: white;
+        font-size: 14px;
+    }
+
+    button {
+        margin-left: 10px;
+        padding: 12px 18px;
+        border: none;
+        border-radius: 8px;
+        background: #22c55e;
+        color: black;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #16a34a;
+    }
+
+    .typing {
+        font-style: italic;
+        opacity: 0.7;
+    }
+</style>
+</head>
+
+<body>
+
+<header>🧠 Air-Gapped Network Copilot</header>
+
+<div id="chat"></div>
+
+<div class="input-area">
+    <input id="question" placeholder="Ask a network question..." />
+    <button onclick="send()">Send</button>
+</div>
+
+<script>
+const chat = document.getElementById("chat");
+
+function addMessage(text, type) {
+    const div = document.createElement("div");
+    div.className = "msg " + type;
+    div.innerText = text;
+    chat.appendChild(div);
+    chat.scrollTop = chat.scrollHeight;
+    return div;
+}
+
+async function send() {
+    const input = document.getElementById("question");
+    const text = input.value.trim();
+    if (!text) return;
+
+    addMessage(text, "user");
+    input.value = "";
+
+    const typing = addMessage("Thinking...", "bot typing");
+
+    const res = await fetch("http://127.0.0.1:8000/ask", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({question: text})
+    });
+
+    const data = await res.json();
+    typing.remove();
+
+    addMessage(data.answer, "bot");
+}
+
+document.getElementById("question")
+.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") send();
+});
+</script>
+
+</body>
+</html>
