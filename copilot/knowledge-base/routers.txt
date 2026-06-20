@@ -1,0 +1,11 @@
+Router R1
+
+Hostname: PE-R1
+IP: 10.10.10.1
+Role: Provider Edge
+
+Router R2
+
+Hostname: PE-R2
+IP: 10.10.10.2
+Role: Provider Edge

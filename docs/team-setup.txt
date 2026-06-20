@@ -231,7 +231,7 @@
 
     Create project using: npm create vite@latest frontend -- --template react
 
-    Install dependencies:
+    Install dependencies: 
         npm install axios
         npm install react-router-dom
         npm install recharts
