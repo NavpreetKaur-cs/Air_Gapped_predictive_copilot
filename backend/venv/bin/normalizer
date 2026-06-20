@@ -1,0 +1,6 @@
+#!/Users/gurneevkaur/github/Air_Gapped_predictive_copilot/backend/app/venv/bin/python
+import sys
+from charset_normalizer.cli import cli_detect
+if __name__ == '__main__':
+    sys.argv[0] = sys.argv[0].removesuffix('.exe')
+    sys.exit(cli_detect())
