@@ -26,7 +26,7 @@
         - NetFlow/IPFIX
 
     ## Machine Learning
-        - Python 3.12
+        - Python 3.13.7
         - Pandas
         - NumPy
         - Scikit-Learn
@@ -60,7 +60,7 @@
         - VS Code
         - Git
         - GitHub Account
-        - Python 3.12
+        - Python 3.13.7
 
     ## Member 1 – Network Engineer
         - EVE-NG or GNS3
@@ -77,7 +77,7 @@
         - npm
 
 # Python Version
-    All members must use: Python 3.12
+    All members must use: Python 3.13.7
     Check: python --version
 
 # Node.js Version
@@ -255,7 +255,7 @@
 
 # Team Rules
 
-    - Use Python 3.12
+    - Use Python 3.13.7
     - Use Node.js 22 LTS
     - Follow assigned folder ownership
     - Push code daily
